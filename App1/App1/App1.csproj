@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\akzidenzgroteskpro_boldex.otf" />
+    <None Remove="Views\Images\Back.png" />
+    <None Remove="Views\Images\Burger.png" />
+    <None Remove="Views\Images\Call.png" />
+    <None Remove="Views\Images\Close.png" />
+    <None Remove="Views\Images\exit.png" />
+    <None Remove="Views\Images\icon.png" />
+    <None Remove="Views\Images\Logout.png" />
+    <None Remove="Views\Images\rubl.png" />
+    <None Remove="Views\Images\service.png" />
+    <None Remove="Views\Images\sets.png" />
+    <None Remove="Views\Images\tarif.png" />
+    <None Remove="Views\Images\User.png" />
+    <None Remove="Views\pl.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\akzidenzgroteskpro_boldex.otf" />
+    <EmbeddedResource Include="Views\Images\Back.png" />
+    <EmbeddedResource Include="Views\Images\Burger.png" />
+    <EmbeddedResource Include="Views\Images\Call.png" />
+    <EmbeddedResource Include="Views\Images\Close.png" />
+    <EmbeddedResource Include="Views\Images\exit.png" />
+    <EmbeddedResource Include="Views\Images\icon.png" />
+    <EmbeddedResource Include="Views\Images\Logout.png" />
+    <EmbeddedResource Include="Views\Images\pl.png" />
+    <EmbeddedResource Include="Views\Images\rubl.png" />
+    <EmbeddedResource Include="Views\Images\service.png" />
+    <EmbeddedResource Include="Views\Images\sets.png" />
+    <EmbeddedResource Include="Views\Images\tarif.png" />
+    <EmbeddedResource Include="Views\Images\User.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NEST" Version="7.16.0" />
+    <PackageReference Include="Plugin.LocalNotification" Version="9.1.2" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+    <PackageReference Include="RestSharp" Version="106.15.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\ListPayments\ListPay.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ListPayments\ListPayments.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Payments\PayNumbers.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PromisePayments\PromisePayments.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Setting\Fl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Sposob.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

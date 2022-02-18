@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1.Views.AboutPage"
+             BackgroundColor="#baf54b">
+
+    <RefreshView x:Name="Refresh" Refreshing="Refresh_Refreshing" RefreshColor="Black">
+        <Grid>
+            <StackLayout BackgroundColor="Black" Grid.Row="1"/>
+            <ScrollView Grid.RowSpan="2" >
+                <StackLayout Grid.RowSpan="2">
+                    <StackLayout Orientation="Horizontal" Padding="20">
+                        <ImageButton x:Name="burger" Source="Burger.png" VerticalOptions="CenterAndExpand" HeightRequest="30" BackgroundColor="#baf54b" HorizontalOptions="StartAndExpand" Clicked="burger_Clicked"/>
+                        <ImageButton x:Name="tool" Source="Logout.png" BackgroundColor="#baf54b" VerticalOptions="CenterAndExpand" HeightRequest="30" HorizontalOptions="EndAndExpand" Clicked="tool_Clicked"/>
+                    </StackLayout>
+                    <StackLayout TranslationY="-50" HorizontalOptions="CenterAndExpand">
+                        <Image x:Name="bar" Source="pl.png" HeightRequest="50"/>
+                        <Label VerticalOptions="Center" BackgroundColor="#baf54b" FontSize="20" FontFamily="akzi"  TextColor="Black" HorizontalTextAlignment="Center"  Text="ПЛАЗМАТЕЛЕКОМ"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <StackLayout Padding="20, 0, 20, 0">
+                            <Frame BackgroundColor="White" TranslationY="0" CornerRadius="30">
+                                <StackLayout Padding="30,0,30,20">
+                                    <StackLayout x:Name="stackRoom"/>
+                                    <StackLayout Padding="0, 10, 0, 0">
+                                        <Button CornerRadius="10" FontFamily="akzi" TextTransform="None" FontSize="17" BackgroundColor="#baf54b" TextColor="Black" Text="Пополнить счет" Clicked="buttonPayNumbers"/>
+                                        <Button CornerRadius="10" FontFamily="akzi" TextTransform="None" FontSize="17" BackgroundColor="#baf54b" TextColor="Black" Text="История платежей" Clicked="buttonTP"/>
+                                        <Button CornerRadius="10" TextTransform="None" FontSize="17" FontFamily="akzi" BackgroundColor="#baf54b" TextColor="Black" Text="Обещанный платеж" Clicked="buttonPromisePayments"/>
+                                        <Button CornerRadius="10" TextTransform="None" FontSize="17" FontFamily="akzi" BackgroundColor="#baf54b" TextColor="Black" Text="Способ оплаты" Clicked="buttonSposob"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="20, 10, 20, 0">
+                            <Button x:Name="btnSms" BorderColor="Black" BorderWidth="1" HorizontalOptions="FillAndExpand" CornerRadius="10" BackgroundColor="#baf54b" Text="Написать" TextColor="Black" FontFamily="akzi" Clicked="btnSms_Clicked"/>
+                            <Button x:Name="btnCall" BorderColor="Black" BorderWidth="1" CornerRadius="10" HorizontalOptions="FillAndExpand" BackgroundColor="#baf54b" Text="Позвонить" TextColor="Black" FontFamily="akzi" Clicked="btnCall_Clicked"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </RefreshView>
+
+    </ContentPage>

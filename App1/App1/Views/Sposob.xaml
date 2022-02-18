@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.Sposob"
+             BackgroundColor="#baf54b">
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="240" x:Name="heightRow"/>
+            </Grid.RowDefinitions>
+            <StackLayout  Grid.RowSpan="1" BackgroundColor="Black" Grid.Row="1"/>
+            <ScrollView Grid.RowSpan="2">
+                <StackLayout Grid.RowSpan="2">
+                    <StackLayout Grid.RowSpan="2" Orientation="Horizontal" Padding="20">
+                    <ImageButton x:Name="btnBack" HorizontalOptions="Start" HeightRequest="30" BackgroundColor="#baf54b" Clicked="btnBack_Clicked"/>
+                </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10, 0, 10, 0">
+                        <Button x:Name="nal" CornerRadius="10" HorizontalOptions="FillAndExpand" BorderColor="Black" BorderWidth="1" BackgroundColor="#baf54b" Text="Наличными" TextColor="Black" FontFamily="akzi" Clicked="Button_Clicked"/>
+                        <Button x:Name="bez" CornerRadius="10" HorizontalOptions="FillAndExpand" BorderColor="Black" BorderWidth="1" BackgroundColor="#baf54b" Text="Безналичными" TextColor="Black" FontFamily="akzi" Clicked="Button_Clicked_1"/>
+                    </StackLayout>
+                    <StackLayout Padding="20">
+                        <Frame CornerRadius="30">
+                            <StackLayout x:Name="stack">
+                                <Label Text="Оплата наличными в офисе:" FontFamily="akzi" FontSize="17" TextColor="Black" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                                <Label Text="  Для пополнения баланса Вам необходимо прийти в наш офис." FontFamily="akzi" FontSize="17" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                                <Label Text="  Мы работаем 7 дней в неделю с 9:00 до 19:00." FontFamily="akzi" FontSize="17" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+
+</ContentPage>

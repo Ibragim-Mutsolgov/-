@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.ListPayments" 
+             BackgroundColor="#baf54b">
+
+    <RefreshView x:Name="Refresh" Refreshing="Refresh_Refreshing" RefreshColor="Black">
+        <Grid>
+                <Grid.RowDefinitions>
+                <RowDefinition Height="163" x:Name="heightRow"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.RowSpan="1" BackgroundColor="Black" Grid.Row="1"/>
+                <ScrollView Grid.RowSpan="2">
+                    <StackLayout Grid.RowSpan="2">
+                        <StackLayout HorizontalOptions="StartAndExpand" Padding="20">
+                            <ImageButton x:Name="btnBack" HeightRequest="30" BackgroundColor="#baf54b" Clicked="btnBack_Clicked"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand" Padding="0, 0, 0, 20">
+                        <Label x:Name="lblMain"  FontFamily="akzi" BackgroundColor="#baf54b" Text="Выберите номер договора:" TranslationY="0" FontSize="18" TextColor="Black" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+                        <StackLayout>
+                            <StackLayout Padding="20, 0, 20, 0">
+                                <Frame BackgroundColor="White" TranslationY="0" CornerRadius="30">
+                                    <StackLayout x:Name="stack" Padding="30,0,30,0"/>
+                                </Frame>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+    </RefreshView>
+    </ContentPage>

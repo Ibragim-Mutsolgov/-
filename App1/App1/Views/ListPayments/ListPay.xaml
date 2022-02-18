@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.ListPay"
+             BackgroundColor="#baf54b">
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition  x:Name="hh"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.RowSpan="1" BackgroundColor="Black" Grid.Row="1"/>
+
+        <ScrollView>
+            <StackLayout BackgroundColor="#baf54b" >
+                <StackLayout  Padding="20" HorizontalOptions="StartAndExpand">
+                    <ImageButton x:Name="btnBack" HeightRequest="30" BackgroundColor="#baf54b" Clicked="btnBack_Clicked"/>
+                </StackLayout>
+                <StackLayout Padding="10, 0, 10, 0" BackgroundColor="#baf54b">
+
+                    <Frame CornerRadius="30">
+                        <StackLayout>
+                            <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Label Text="Выберите дату:" FontFamily="akzi" FontSize="25" TextColor="Black" HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <StackLayout HorizontalOptions="StartAndExpand">
+                                    <Label Text="От:" FontFamily="akzi" HorizontalTextAlignment="Start" FontSize="20" TextColor="Black"  />
+                                    <DatePicker x:Name="dateFrom" FontFamily="akzi" FontSize="15" TextColor="Black"/>
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="EndAndExpand">
+                                    <Label Text="До:" FontFamily="akzi" HorizontalTextAlignment="End" FontSize="20" TextColor="Black" />
+                                    <DatePicker x:Name="dateto" FontFamily="akzi" FontSize="15" TextColor="Black"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Padding="0">
+                                <Button Text="Обновить"  FontSize="20" FontFamily="akzi" TextTransform="None" CornerRadius="10" BackgroundColor="#baf54b" TextColor="Black" Clicked="Button_Clicked"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+        <RefreshView x:Name="Refresh" Grid.Row="1" Refreshing="Refresh_Refreshing" RefreshColor="#baf54b">
+            <ScrollView Grid.Row="1">
+                <StackLayout x:Name="stack"  Padding="0, 20, 0, 20">
+                </StackLayout>
+            </ScrollView>
+        </RefreshView>
+    </Grid>
+</ContentPage>

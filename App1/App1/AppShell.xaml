@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:App1.Views"
+       Title="App1"
+       FlyoutBackgroundColor="Black "
+       x:Class="App1.AppShell"
+       x:Name="shell">
+
+    <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="White" />
+                <Setter Property="Shell.ForegroundColor" Value="Black" />
+                <Setter Property="Shell.TitleColor" Value="Black" />
+                <Setter Property="Shell.DisabledColor" Value="Black" />
+                <Setter Property="Shell.UnselectedColor" Value="Black" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="White" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="Black"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="Black"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="Black"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+
+            <!--
+            Default Styles for all Flyout Items
+            https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyoutitem-and-menuitem-style-classes
+            -->
+            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="White"></Setter>
+            </Style>
+            <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{x:OnPlatform iOS=White}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"  Value="Black" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <!--
+            Custom Style you can apply to any Flyout Item
+            -->
+            <Style Class="MenuItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <StackLayout Padding="20">
+            <StackLayout HorizontalOptions="End">
+                <ImageButton x:Name="cl" Source="Close.png" BackgroundColor="Black" HeightRequest="50" Clicked="cl_Clicked"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="0, 10, 0, 20">
+                <Image x:Name="user" Source="User.png" HeightRequest="60" VerticalOptions="CenterAndExpand"/>
+                <Label x:Name="lblUsername" Padding="10, 0, 0, 0" FontFamily="akzi" VerticalOptions="CenterAndExpand" FontSize="18" TextTransform="None" HorizontalOptions="Start" BackgroundColor="Black" TextColor="White" />
+            </StackLayout>
+            <BoxView Color="White" HeightRequest="2"/>
+            <StackLayout Orientation="Horizontal" >
+                <Image x:Name="ser" Source="service.png" HeightRequest="40"/>
+                <Button Text="Мои услуги" TextColor="White" FontSize="17" Padding="10, 0, 0, 0" FontFamily="akzi" BackgroundColor="Black" Clicked="btnMyRoom_Clicked"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" >
+                <Image x:Name="tar" Source="tarif.png" HeightRequest="40"/>
+                <Button Text="Сменить тариф" TextColor="White" FontSize="17" Padding="10, 0, 0, 0" FontFamily="akzi" BackgroundColor="Black" Clicked="Myservice_Clicked"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" >
+                <Image x:Name="set" Source="sets.png" HeightRequest="40"/>
+                <Button Text="Параметры" TextColor="White" FontSize="17" Padding="10, 0, 0, 0" FontFamily="akzi" BackgroundColor="Black" Clicked="btnSettings_Clicked"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" >
+                <Image x:Name="ex" Source="exit.png" HeightRequest="40"/>
+                <Button Text="Выйти" TextColor="White" FontSize="17" Padding="10, 0, 0, 0" FontFamily="akzi" BackgroundColor="Black" Clicked="OnMenuItemClicked"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Image x:Name="mainImage" Source="pl.png" HeightRequest="60"/>
+                <Label Text="ПЛАЗМАТЕЛЕКОМ" FontFamily="akzi" TextColor="#baf54b" FontSize="19"/>
+            </StackLayout>
+        </StackLayout>
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutContent>
+        <CollectionView BindingContext="{x:Reference shell}"
+                        IsGrouped="false"
+                        ItemsSource="{Binding FlyoutItems}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Vertical">
+                        
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Shell.FlyoutContent>
+
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Image x:Name="mainImage" Source="pl.png" HeightRequest="60"/>
+                <Label Text="ПЛАЗМАТЕЛЕКОМ" FontFamily="akzi" TextColor="#baf54b" FontSize="19"/>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
+    <FlyoutItem Title="Мои услуги" Icon="service.png" >
+        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+    </FlyoutItem>
+    <FlyoutItem  >
+        <ShellContent Route="Fl" ContentTemplate="{DataTemplate local:Setting.Fl}" />
+    </FlyoutItem>
+    <MenuItem Text="Выйти" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    </MenuItem>
+    <TabBar>
+        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+    </TabBar>
+    
+</Shell>

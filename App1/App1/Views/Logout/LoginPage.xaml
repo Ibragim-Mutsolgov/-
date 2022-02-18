@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1.Views.LoginPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#baf54b">
+
+    <Grid >
+        <StackLayout BackgroundColor="Black" Grid.Row="1"/>
+        <ScrollView Grid.RowSpan="2">
+            <StackLayout Grid.RowSpan="2">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Image x:Name="image" Source="pl.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HeightRequest="90"/>
+                    <Label Text="ПЛАЗМАТЕЛЕКОМ" HorizontalTextAlignment="Center" FontFamily="akzi" VerticalOptions="CenterAndExpand" FontSize="25" HorizontalOptions="CenterAndExpand"  TextColor="Black"/>
+                </StackLayout>
+                <StackLayout Padding="20" HorizontalOptions="CenterAndExpand" >
+                    <Frame CornerRadius="30">
+                        <StackLayout>
+                            <StackLayout HorizontalOptions="CenterAndExpand">
+                                <Label Text="Авторизация" HorizontalTextAlignment="Center" FontFamily="akzi" FontSize="25" TextColor="Black"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 0">
+                                <Label Text="Введите ваш телефон, email или номер договора" HorizontalTextAlignment="Start" FontSize="14" FontFamily="akzi" TextColor="Black"/>
+                            </StackLayout>
+                            <StackLayout Padding="20, 0, 20, 0">
+                                <Entry x:Name="login" Placeholder="Логин" PlaceholderColor="Black" ClearButtonVisibility="WhileEditing" FontSize="14" FontFamily="akzi" HorizontalTextAlignment="Center"  TextColor="Black"/>
+                                <BoxView x:Name="box1" HeightRequest="3" BackgroundColor="Black"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Padding="20, 20, 20, 0">
+                                <Label Text="Введите пароль" HorizontalTextAlignment="Start" VerticalOptions="Center" FontSize="14" FontFamily="akzi" HorizontalOptions="StartAndExpand" TextColor="Black"/>
+                            </StackLayout>
+                            <StackLayout Padding="20, 0, 20, 0">
+                                <Entry x:Name="pass" ClearButtonVisibility="WhileEditing" PlaceholderColor="Black" Placeholder="Пароль" FontFamily="akzi" FontSize="14" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="Black"/>
+                                <BoxView x:Name="box2" HeightRequest="3" BackgroundColor="Black"/>
+                            </StackLayout>
+                            <StackLayout Padding="20, 20, 20, 0" VerticalOptions="Center">
+                                <Button Text="Войти" TextTransform="None" FontSize="17" FontFamily="akzi" BackgroundColor="#baf54b" TextColor="Black" CornerRadius="10" Clicked="onLogin"/>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" IsVisible="true">
+                                <Label x:Name="lblFalsePhoneOrPass" Text="Неверно введен логин или пароль" TextColor="Red" FontSize="12" FontFamily="akzi" IsVisible="false"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout VerticalOptions="EndAndExpand" Padding="0, 0, 0, 0" TranslationY="-10">
+                    <Label Text="Не знаете номер договора или пароль?" FontSize="14" TranslationY="7" FontFamily="akzi" TextColor="#baf54b" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                    <Label Text="Обратитесь в техническую поддержку" FontSize="14" TextColor="#baf54b" FontFamily="akzi" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                    <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="20, 10, 20, 0">
+                        <Button x:Name="btnSms" HorizontalOptions="FillAndExpand" CornerRadius="10" BackgroundColor="#baf54b" Text="Написать" TextColor="Black" FontFamily="akzi" Clicked="btnSms_Clicked"/>
+                        <Button x:Name="btnCall"  CornerRadius="10" HorizontalOptions="FillAndExpand" BackgroundColor="#baf54b" Text="Позвонить" TextColor="Black" FontFamily="akzi" Clicked="btnCall_Clicked"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
